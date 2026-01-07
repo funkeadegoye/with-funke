@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Accounting Codes & Excel Data Cleaning - Bammy</title>
+    <meta name="description"
+        content="Learn about accounting codes and discover essential Excel tips for handling trial balances, including detecting duplicates and separating codes from descriptions.">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">Bammy</a>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                    <a href="../about.html">About</a>
+                    <a href="#">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <article>
+        <div class="post-header">
+            <div class="container">
+                <span class="card-tag"
+                    style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2);">Data
+                    Analytics</span>
+                <h1>Mastering Accounting Codes & Excel Data Cleaning</h1>
+                <div class="post-meta">Published on January 07, 2026 • 3 min read</div>
+            </div>
+        </div>
+
+        <div class="post-content">
+            <p><strong>An accounting code</strong> is a unique number or identifier used to distinguish a specific
+                account.
+                In automated accounting or audit software, accounting codes play a critical role in mapping accounts,
+                posting journals, and performing several other functions.</p>
+
+            <h2>Detecting Duplicates in Trial Balances</h2>
+            <p>When importing trial balances from an Excel worksheet, ensure you use <strong>conditional
+                    formatting</strong> to identify any duplicate accounting codes and correct them if found. Trial
+                balances imported directly from accounting software rarely have issues with duplicate codes.</p>
+
+            <div class="highlight-box">
+                <p><strong>Tip:</strong> In Excel, select your accounting code column, go to <em>Home > Conditional
+                        Formatting > Highlight Cells Rules > Duplicate Values</em> to instantly spot issues.</p>
+            </div>
+
+            <h2>Separating Codes from Descriptions</h2>
+            <p>In cases where you receive a trial balance in Excel and notice that the accounting codes and descriptions
+                are combined in the same cell—but you need the accounting code in a separate column—you can easily
+                resolve this by using the <strong>LEFT</strong> function.</p>
+
+            <p>For example, if cell <code>A1</code> contains something like <code>"1001-Cash on Hand"</code> and the
+                accounting code is always 4 digits long, you can use:</p>
+
+            <div class="code-block">
+                <pre><code>=LEFT(A1, 4)</code></pre>
+            </div>
+
+            <p>However, if the length of the code varies (e.g., <code>"101-Petty Cash"</code> vs
+                <code>"10050-Bank"</code>) but is always separated by a hyphen or a space, finding the delimiter is
+                safer:</p>
+
+            <div class="code-block">
+                <pre><code>=LEFT(A1, FIND("-", A1) - 1)</code></pre>
+            </div>
+
+            <p>This formula finds the position of the hyphen and extracts everything to the left of it, ensuring your
+                data is clean and ready for import.</p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bammy. All rights reserved.</p>
+            <p>Designed with precision.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
